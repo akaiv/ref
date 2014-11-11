@@ -1,6 +1,6 @@
 <?php
 /* 스타일시트 및 자바스크립트 */
-if ( ! defined( 'WP_ENV' ) ) define( 'WP_ENV', 'production' );
+if ( ! defined('WP_ENV') ) define( 'WP_ENV', 'production' );
 function akaiv_scripts() {
   if (WP_ENV === 'development') :
     $assets = array(
@@ -40,7 +40,7 @@ function akaiv_head() { ?>
   <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/images/favicon/favicon-96x96.png" sizes="96x96">
   <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/images/favicon/favicon-16x16.png" sizes="16x16">
   <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/images/favicon/favicon-32x32.png" sizes="32x32">
-  <meta name="msapplication-TileColor" content="#777777">
+  <meta name="msapplication-TileColor" content="#5b5b5b">
   <meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/images/favicon/mstile-144x144.png">
   <meta name="msapplication-square70x70logo" content="<?php echo get_template_directory_uri(); ?>/images/favicon/mstile-70x70.png">
   <meta name="msapplication-square150x150logo" content="<?php echo get_template_directory_uri(); ?>/images/favicon/mstile-150x150.png">
@@ -55,8 +55,8 @@ function akaiv_head() { ?>
   <meta property="og:type" content="article">
 
   <?php else : ?>
-  <meta property="og:site_name" content="<?php bloginfo( 'name' ); ?>">
-  <meta property="og:description" content="<?php bloginfo( 'description' ); ?>">
+  <meta property="og:site_name" content="<?php bloginfo('name'); ?>">
+  <meta property="og:description" content="<?php bloginfo('description'); ?>">
   <meta property="og:type" content="website">
   <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/images/fb-image.jpg">
 
