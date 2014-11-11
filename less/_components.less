@@ -1,3 +1,56 @@
+// 일반 요소
+h1, h2, h3, p, ul, ol {
+	margin: 0;
+}
+
+// 카테고리 목록
+.well {
+	.no-border;
+	.no-shadow;
+	line-height: 1.6;
+	margin-bottom: 5px;
+	padding: 12px 15px;
+	i { margin-right: 3px }
+}
+
+// 패널
+.panel {
+	.no-border;
+	.box-shadow(@box-shadow);
+	margin-bottom: @item-gutter;
+}
+//== 패널: 썸네일
+.panel-heading {
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+	// 별표
+	.star {
+		position: absolute;
+		bottom: 5px;
+		right: 10px;
+	}
+}
+//== 패널: 썸네일이 없는 경우
+.no-thumbnail {
+	.size(100%,25px);
+	padding: 4px 12px;
+}
+
+// 새 자료 등록 버튼
+.panel-post-new {
+	overflow: hidden;
+}
+.post-new {
+	.link(@text-lighter);
+	display: block;
+	height: @item-width-wide;
+	padding-top: 60px;
+	.transition(all 150ms ease);
+	&:hover { background-color: @gray-97 }
+	i { .font-size(96) }
+}
+
 // 폼: 새 항목 추가
 .add-post {
 	background-color: @gray-95;

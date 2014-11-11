@@ -2,12 +2,29 @@
 @brand:         @blue;
 @link:          @brand;
 @text:          @gray-dark;
-@text-light:    @gray-light;
+@text-light:    @gray-50;
+@text-lighter:  @gray-75;
 .brand          { color: @brand }
 .bg-brand       { background-color: @brand }
 .text-light     { color: @text-light }
+.text-lighter   { color: @text-lighter }
 
 // 색상
-@line-dark:     darken(@line, 6%);
-@line:          @table-border-color;
-@line-light:    lighten(@line, 6%);
+@line-dark:     @gray-80;
+@line:          @gray-92;
+@line-light:    @gray-95;
+@box-shadow:    ~"0 1px 1px 0 rgba(0, 0, 0, 0.18)";
+
+// 크기
+@width-iphone:       320px;
+@width-android:      360px;
+@item-width-iphone:  ( ( @width-iphone  - 3 * @item-gutter ) / 2 );
+@item-width-android: ( ( @width-android - 3 * @item-gutter ) / 2 );
+@item-width-wide:    240px;
+@item-gutter:        10px;
+@columns-2:          ( 2 * ( @item-width-wide + @item-gutter ) - @item-gutter + @grid-gutter-width ); //  490 + 20 =  510
+@columns-3:          ( 3 * ( @item-width-wide + @item-gutter ) - @item-gutter + @grid-gutter-width ); //  740 + 20 =  760
+@columns-4:          ( 4 * ( @item-width-wide + @item-gutter ) - @item-gutter + @grid-gutter-width ); //  990 + 20 = 1010
+@columns-5:          ( 5 * ( @item-width-wide + @item-gutter ) - @item-gutter + @grid-gutter-width ); // 1240 + 20 = 1260
+@columns-6:          ( 6 * ( @item-width-wide + @item-gutter ) - @item-gutter + @grid-gutter-width ); // 1490 + 20 = 1510
+@columns-7:          ( 7 * ( @item-width-wide + @item-gutter ) - @item-gutter + @grid-gutter-width ); // 1740 + 20 = 1760

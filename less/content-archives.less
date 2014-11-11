@@ -1,14 +1,20 @@
 // 글 보관함과 검색결과 목록
 .home,
 .archive,
-.search {
+.search,
+.error404 {
+
+	// 글 목록
+	.archive-list {
+		position: relative;
+	}
 
 	// 글 항목
-	.hentry {
-		margin-bottom: 30px;
-		@media (min-width: @tablet) {
-			margin-bottom: 60px;
-		}
+	.archive-item {
+		position: absolute;
+		width: @item-width-iphone;
+		@media (min-width: @width-android) { width: @item-width-android }
+		@media (min-width: @phone)         { width: @item-width-wide }
 	}
 
 	// 보관함: Taxonomy description
