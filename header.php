@@ -18,8 +18,9 @@
 <a class="sr-only skip-link" href="#content"><?php echo 'Skip to content'; ?></a>
 
 <header id="masthead" class="site-header" role="banner">
-  <?php $args = array( 'title_li' => '', 'depth' => 1 ); ?>
-  <nav id="gnb" class="site-navigation gnb gnb-mobile navbar navbar-default navbar-fixed-top visible-xs" role="navigation">
+  <?php $mobile  = array( 'title_li' => '', 'depth' => 1 ); ?>
+  <?php $desktop = array( 'title_li' => '', 'depth' => 2, 'show_count' => 1 ); ?>
+  <nav id="gnb" class="site-navigation gnb gnb-mobile navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnb-collapse">
@@ -28,18 +29,19 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+        <a id="brand" class="site-title navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
       </div>
       <div class="collapse navbar-collapse navbar-right" id="gnb-collapse">
-        <ul class="nav navbar-nav"><?php wp_list_categories( $args ); ?></ul>
+        <ul class="nav navbar-nav"><?php wp_list_categories( $mobile ); ?></ul>
       </div>
     </div>
   </nav>
-  <nav class="site-navigation gnb gnb-desktop text-center" role="navigation">
+  <nav class="site-navigation gnb gnb-desktop" role="navigation">
     <div class="container">
-      <h1 id="brand" class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-      <?php if ( get_bloginfo( 'description' ) ) : ?><p class="site-description"><?php bloginfo( 'description' ); ?></p><?php endif; ?>
-      <p class="site-about"><a href="<?php echo home_url( '/about' ) ?>" class="btn btn-default btn-sm">about</a></p>
-      <ul class="cat-list list-inline hidden-xs"><?php wp_list_categories( $args ); ?></ul>
+      <div class="well">
+        <?php if ( get_bloginfo( 'description' ) ) : ?><p class="site-description"><i class="fa fa-fw fa-bookmark-o"></i><?php bloginfo( 'description' ); ?></p><?php endif; ?>
+        <ul class="cat-list list-unstyled hidden-xs"><?php wp_list_categories( $desktop ); ?></ul>
+      </div>
     </div>
   </nav>
 </header><!-- #masthead -->

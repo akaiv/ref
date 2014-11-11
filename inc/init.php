@@ -2,7 +2,7 @@
 /* 테마 설정 */
 function akaiv_setup_theme() {
   register_nav_menu( 'gnb', '주 메뉴' );
-  // add_image_size( $name, $width, $height, $crop );
+  add_image_size( 'preview', 480);
   add_theme_support( 'post-thumbnails' );
   add_theme_support( 'automatic-feed-links' );
   add_theme_support( 'html5', array( 'search-form', 'gallery', 'caption' ) );

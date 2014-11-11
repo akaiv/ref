@@ -93,14 +93,12 @@ function akaiv_post_thumbnail() {
       </div><?php
     endif;
 
-  else : /* 외부: a.post-thumbnail에 링크 부여하고 썸네일을 가져옴 */ ?>
-    <a class="post-thumbnail" href="<?php akaiv_the_url(); ?>"><?php
-      if ( has_post_thumbnail() ) :
-        the_post_thumbnail('thumbnail');
-      else : ?>
-        <img width="150" height="150" src="<?php echo get_template_directory_uri(); ?>/images/thumbnail-post.png" class="attachment-thumbnail wp-post-image" alt="<?php echo get_the_title(); ?>"><?php
-      endif; ?>
-    </a><?php
+  else : /* 외부: a.post-thumbnail에 링크 부여하고 썸네일을 가져옴 */
+    if ( has_post_thumbnail() ) :
+      the_post_thumbnail('preview');
+    else : ?>
+      <div class="no-thumbnail bg-black text-light"><i class="fa fa-fw fa-file-text-o"></i> 문서</div><?php
+    endif;
 
   endif; /* End is_singular() */
 }
@@ -111,15 +109,15 @@ function akaiv_post_meta($str = null) {
     return false;
 
   elseif ( $str == 'category' ) : ?>
-    <span class="cat-links"><i class="fa fa-fw fa-folder-open"></i> <?php echo get_the_category_list( ', ' ); ?></span><?php
+    <span class="cat-links"><?php echo get_the_category_list( ', ' ); ?></span><?php
 
   elseif ( $str == 'tag' ) :
     if ( has_tag() ) : ?>
-      <span class="tag-links"><i class="fa fa-fw fa-tag"></i> <?php the_tags('', ', ', ''); ?></span><?php
+      <span class="tag-links"><?php the_tags('', ', ', ''); ?></span><?php
     endif;
 
   elseif ( $str == 'date' ) : ?>
-    <span class="posted-on"><i class="fa fa-fw fa-clock-o"></i> <a href="<?php echo get_month_link( get_the_time('Y'), get_the_time('m') ); ?>"><time class="entry-date" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ) ?></time></a></span><?php
+    <span class="posted-on"><time class="entry-date" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ) ?></time></span><?php
 
   elseif ( $str == 'author' ) : ?>
     <span class="byline author vcard"><i class="fa fa-fw fa-user"></i> <a class="url fn" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author"><?php echo get_the_author(); ?></a></span><?php
@@ -134,7 +132,7 @@ function akaiv_edit_post_link() {
       <?php edit_post_link( '편집', '<span class="edit-link">', '</span>' ); ?>
     </div><?php
   else :
-    edit_post_link( '편집', '<span class="edit-link"><i class="fa fa-fw fa-pencil"></i> ', '</span>' );
+    edit_post_link( '편집', '<span class="edit-link">', '</span>' );
   endif;
 }
 
