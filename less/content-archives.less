@@ -3,6 +3,22 @@
 .archive,
 .search {
 
+	// 로딩 인디케이터
+	.loading-indicator {
+		.font-size(48);
+		.text-center;
+		color: darken(@body-bg, 5%);
+		height:      120px;
+		line-height: 120px;
+	}
+
+	// 보관함 목록, 페이지네이션, 푸터 숨김
+	.archive-list,
+	.nav-pagination,
+	.site-footer {
+		visibility: hidden;
+	}
+
 	// 글 목록
 	.archive-list {
 		position: relative;
