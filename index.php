@@ -4,6 +4,7 @@ akaiv_before_content(); ?>
 
 <?php
   if ( have_posts() ) : ?>
+    <div class="loading-indicator">Loading...</div>
     <div class="archive-list">
       <?php if ( current_user_can( 'publish_posts' ) ) : ?>
         <div class="archive-item column">
