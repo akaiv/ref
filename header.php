@@ -36,21 +36,17 @@
       </div>
     </div>
   </nav>
-  <nav class="site-navigation gnb gnb-desktop" role="navigation">
-    <div class="container">
-      <div class="well">
-        <?php if ( get_bloginfo( 'description' ) ) : ?><p class="site-description"><i class="fa fa-fw fa-bookmark-o"></i><?php bloginfo( 'description' ); ?></p><?php endif; ?>
-        <ul class="cat-list list-unstyled hidden-xs"><?php wp_list_categories( $desktop ); ?></ul>
+  <?php if ( ! is_singular() ) : ?>
+    <nav class="site-navigation gnb gnb-desktop" role="navigation">
+      <div class="container">
+        <div class="well">
+          <?php if ( get_bloginfo( 'description' ) ) : ?><p class="site-description"><i class="fa fa-fw fa-bookmark-o"></i><?php bloginfo( 'description' ); ?></p><?php endif; ?>
+          <ul class="cat-list list-unstyled hidden-xs"><?php wp_list_categories( $desktop ); ?></ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  <?php endif; ?>
 </header><!-- #masthead -->
-
-<div class="site-search">
-  <div class="container">
-    <?php get_search_form(); ?>
-  </div>
-</div>
 
 <div id="main" class="site-main">
   <div class="container">

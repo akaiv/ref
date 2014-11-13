@@ -2,6 +2,12 @@
 get_header();
 akaiv_before_content(); ?>
 
+<div class="site-search">
+  <div class="container">
+    <?php get_search_form(); ?>
+  </div>
+</div>
+
 <?php
   if ( have_posts() ) : ?>
     <div class="loading-indicator">Loading...</div>

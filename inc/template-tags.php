@@ -86,22 +86,24 @@ function akaiv_the_url() {
 }
 
 /* 글: 썸네일 */
-function akaiv_post_thumbnail() {
-  if ( is_singular() ) : /* 글, 페이지, 첨부파일 */
-    if ( has_post_thumbnail() ) : ?>
-      <div class="post-thumbnail">
-        <?php the_post_thumbnail( 'full' ); ?>
-      </div><?php
-    endif;
+function akaiv_post_thumbnail() { ?>
+  <div class="post-thumbnail"><?php
+    if ( is_singular() ) : /* 글, 페이지, 첨부파일 */
+      if ( has_post_thumbnail() ) :
+        the_post_thumbnail( 'full' );
+      endif;
 
-  else : /* 외부 */
-    if ( has_post_thumbnail() ) :
-      the_post_thumbnail_srcset( 'preview-1x', 'preview-2x' );
-    else : ?>
-      <div class="no-thumbnail bg-black text-light"><i class="fa fa-fw fa-file-text-o"></i> 문서</div><?php
-    endif;
+    else : /* 외부 */ ?>
+      <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php
+        if ( has_post_thumbnail() ) :
+          the_post_thumbnail_srcset( 'preview-1x', 'preview-2x' );
+        else : ?>
+          <div class="no-thumbnail bg-black text-light"><i class="fa fa-fw fa-file-text-o"></i> 문서</div><?php
+        endif; ?>
+      </a><?php
 
-  endif;
+    endif; ?>
+  </div><?php
 }
 
 /* 레티나 대응 썸네일 */
