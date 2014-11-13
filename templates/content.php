@@ -20,7 +20,7 @@
       </h1>
     </header>
     <div class="entry-summary">
-      <?php the_excerpt(); ?>
+      <p><?php the_excerpt(); ?></p>
     </div>
     <div class="entry-meta">
       <p class="text-right">
