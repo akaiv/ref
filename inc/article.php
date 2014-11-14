@@ -9,7 +9,7 @@ function akaiv_insert_footnote($content) {
     if ( is_feed() && has_post_thumbnail() ) :
       $content = '<p>'.get_the_post_thumbnail(null, 'large').'</p>'.$content;
     endif;
-    $content.= '<p>원문 바로가기: <a href="'.akaiv_get_url().'">'.akaiv_get_url().'</a></p>';
+    $content.= '<p>원문 바로가기: <a href="'.akaiv_get_url().'" target="_blank" rel="bookmark">'.akaiv_get_url().'</a></p>';
   endif;
   return $content;
 }
