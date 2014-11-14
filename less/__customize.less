@@ -20,6 +20,22 @@
 @screen-xl:                  1510px;
 @screen-xxl:                 1760px;
 
+//== Mid-small grid
+/* Twitter Bootstrap (Customized) */
+@media (min-width: @screen-xs-min) and (max-width: @screen-xs-max) { .make-grid(ms) }
+@media (min-width: @screen-xl)  { .make-grid(xl) }
+@media (min-width: @screen-xxl) { .make-grid(xxl) }
+.container {
+	                                     width: @width-iphone;
+	@media (min-width: @width-android) { width: @width-android }
+	@media (min-width: @screen-xs-min) { width: @columns-2 }
+	@media (min-width: @screen-sm-min) { width: @columns-3 }
+	@media (min-width: @screen-md-min) { width: @columns-4 }
+	@media (min-width: @screen-lg-min) { width: @columns-5 }
+	@media (min-width: @screen-xl)     { width: @columns-6 }
+	@media (min-width: @screen-xxl)    { width: @columns-7 }
+}
+
 //== Container sizes
 //@container-tablet:             ((720px + @grid-gutter-width));
 //@container-desktop:            ((940px + @grid-gutter-width));
@@ -38,23 +54,6 @@
 //@zindex-navbar-fixed:      1030;
 //@zindex-modal-background:  1040;
 //@zindex-modal:             1050;
-
-//== Mid-small grid
-/* Twitter Bootstrap (Customized) */
-@media (min-width: @screen-xs-min) and (max-width: @screen-xs-max) { .make-grid(ms) }
-@media (min-width: @screen-xl)  { .make-grid(xl) }
-@media (min-width: @screen-xxl) { .make-grid(xxl) }
-.container {
-	                                     width: @width-iphone;
-	@media (min-width: @width-android) { width: @width-android }
-	@media (min-width: @screen-xs-min) { width: @columns-2 }
-	@media (min-width: @screen-sm-min) { width: @columns-3 }
-	@media (min-width: @screen-md-min) { width: @columns-4 }
-	@media (min-width: @screen-lg-min) { width: @columns-5 }
-	@media (min-width: @screen-xl)     { width: @columns-6 }
-	@media (min-width: @screen-xxl)    { width: @columns-7 }
-}
-
 
 //== Navbar
 //@navbar-height:                    50px;

@@ -93,7 +93,7 @@ function akaiv_post_thumbnail($size = null) {
       if ( has_post_thumbnail() ) :
         the_post_thumbnail_srcset( 'related-1x', 'related-2x' );
       else : ?>
-        <div style="width:105px;height:105px" class="bg-gray"></div><?php
+        <span class="docs"><i class="fa fa-fw fa-file-text-o"></i></span><?php
       endif; ?>
     </a><?php
 

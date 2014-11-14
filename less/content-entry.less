@@ -15,7 +15,7 @@
 		margin-top:    5px;
 		margin-bottom: 5px;
 		.wp-post-image {
-			width: 100%;
+			max-width: 100%;
 		}
 	}
 
@@ -28,8 +28,10 @@
 			.underline;
 			&.btn { text-decoration: none }
 		}
-		.font-size(16);
-		line-height: 1.6;
+		.font-size(14);
+		@media (min-width: @phone) {
+			.font-size(16);
+		}
 	}
 
 	//== 글: 관련 글
@@ -47,14 +49,27 @@
 		.clearfix;
 		margin-left:  -5px;
 		margin-right: -5px;
-		.related-item {
-			float: left;
-			padding-left:  5px;
-			padding-right: 5px;
-			.post-thumbnail {
-				margin-top:    0;
-				margin-bottom: 0;
-			}
+	}
+	.related-item {
+		float: left;
+		padding-left:  5px;
+		padding-right: 5px;
+		.post-thumbnail {
+			margin-top:    0;
+			margin-bottom: 0;
+			outline: 1px solid @line;
+		}
+		img, .docs {
+			background-color: @gray;
+			display: block;
+			text-align: center;
+			.square(60px);
+			line-height: 60px;
+			@media (min-width: @width-android) { .square(70px);  line-height: 70px }
+			@media (min-width: @screen-xs-min) { .square(105px); line-height: 105px }
+		}
+		a {
+			.link(@white;@white);
 		}
 	}
 
