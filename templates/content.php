@@ -7,10 +7,10 @@
   $source  = get_post_meta( $theID, 'wpcf-website-source', true );
 ?>
 
-<div class="panel panel-default">
 
-  <?php if ( is_single() ) : /* 글 */ ?>
+<?php if ( is_single() ) : /* 글 */ ?>
 
+  <div class="panel panel-default">
     <ul class="list-group entry-meta">
       <li class="list-group-item">
         <header class="entry-header">
@@ -55,7 +55,7 @@
           'posts_per_page' => '8'
         );
         $query = new WP_Query( $args );
-        if ( $query->have_posts() && $query->post_count > 1 ) : ?>
+        if ( $query->have_posts() && $query->post_count ) : ?>
           <div class="related-list">
             <?php while ( $query->have_posts() ) : $query->the_post(); ?>
               <div class="related-item">
@@ -71,9 +71,11 @@
         wp_reset_postdata();
       ?>
     </div>
+  </div><!-- .panel -->
 
-  <?php else : /* 목록 */ ?>
+<?php else : /* 목록 */ ?>
 
+  <div class="panel panel-default">
     <div class="panel-heading">
       <?php akaiv_post_thumbnail(); ?>
       <?php if ( $starred ) echo '<i class="fa fa-fw fa-star star orange"></i>'; ?>
@@ -114,9 +116,9 @@
         </li>
       <?php endif; ?>
     </ul>
+  </div><!-- .panel -->
 
-  <?php endif; ?>
+<?php endif; ?>
 
-</div><!-- .panel -->
 
 <?php akaiv_after_page(); ?>
