@@ -19,9 +19,11 @@
           </h1>
         </header>
       </li>
-      <li class="list-group-item">
-        <?php akaiv_post_thumbnail(); ?>
-      </li>
+      <?php if ( has_post_thumbnail() ) : ?>
+        <li class="list-group-item">
+          <?php akaiv_post_thumbnail(); ?>
+        </li>
+      <?php endif; ?>
       <li class="list-group-item">
         <div class="entry-content">
           <?php the_excerpt(); ?>
@@ -44,8 +46,30 @@
   </div><!-- .panel -->
   <div class="panel panel-default">
     <div class="panel-body">
-      <h1 class="category-title">분류: <?php akaiv_post_meta( 'category' ); ?></h1>
-      <p class="text-light">이 분류에 있는 다른 글</p>
+      <h1 class="related-title">분류: <?php akaiv_post_meta( 'category' ); ?> <small>이 분류에 있는 다른 글</small></h1>
+      <?php
+        $args = array (
+          'cat'            => get_the_category()[0]->term_id,
+          'post__not_in'   => array ( $theID ),
+          'pagination'     => true,
+          'posts_per_page' => '8'
+        );
+        $query = new WP_Query( $args );
+        if ( $query->have_posts() && $query->post_count > 1 ) : ?>
+          <div class="related-list">
+            <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+              <div class="related-item">
+                <article <?php post_class(); ?>>
+                  <div class="post-thumbnail" data-toggle="tooltip" data-placement="top" title="<?php akaiv_the_title(); ?>">
+                    <?php akaiv_post_thumbnail('related'); ?>
+                  </div>
+                </article>
+              </div>
+            <?php endwhile; ?>
+          </div><?php
+        endif;
+        wp_reset_postdata();
+      ?>
     </div>
 
   <?php else : /* 목록 */ ?>

@@ -2,7 +2,7 @@
   'use strict';
 
   $('[data-toggle="tooltip"]').tooltip({
-    delay: { "show": 500 }
+    delay: { "show": 300 }
   });
 
   /* 메이슨리: 글 보관함에서 작동 */
