@@ -1,4 +1,4 @@
-<?php akaiv_before_page(); ?>
+<?php akaiv_before_post( false ); ?>
 
 <div class="panel panel-default">
   <div class="panel-body">
@@ -21,4 +21,4 @@
   </div>
 </div>
 
-<?php akaiv_after_page(); ?>
+<?php akaiv_after_post(); ?>

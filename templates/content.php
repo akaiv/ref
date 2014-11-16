@@ -1,4 +1,4 @@
-<?php akaiv_before_page(); ?>
+<?php akaiv_before_post(); ?>
 
 <?php
   $theID   = get_the_ID();
@@ -121,4 +121,4 @@
 <?php endif; ?>
 
 
-<?php akaiv_after_page(); ?>
+<?php akaiv_after_post(); ?>
