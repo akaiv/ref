@@ -21,7 +21,7 @@
       </li>
       <?php if ( has_post_thumbnail() ) : ?>
         <li class="list-group-item">
-          <?php akaiv_post_thumbnail(); ?>
+          <?php ref_post_thumbnail(); ?>
         </li>
       <?php endif; ?>
       <li class="list-group-item">
@@ -61,7 +61,7 @@
               <div class="related-item">
                 <article <?php post_class(); ?>>
                   <div class="post-thumbnail" data-toggle="tooltip" data-placement="top" title="<?php akaiv_the_title(); ?>">
-                    <?php akaiv_post_thumbnail('related'); ?>
+                    <?php ref_post_thumbnail('related'); ?>
                   </div>
                 </article>
               </div>
@@ -77,7 +77,7 @@
 
   <div class="panel panel-default">
     <div class="panel-heading">
-      <?php akaiv_post_thumbnail(); ?>
+      <?php ref_post_thumbnail(); ?>
       <?php if ( $starred ) echo '<i class="fa fa-fw fa-star star orange"></i>'; ?>
     </div><!-- .panel-heading -->
 

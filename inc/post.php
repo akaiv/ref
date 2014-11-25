@@ -31,34 +31,27 @@ function akaiv_the_url() {
 }
 
 /* 썸네일 */
-function akaiv_post_thumbnail($size = null) {
-  if ( $size == 'related' ) : ?>
-    <a href="<?php the_permalink(); ?>"><?php
+function akaiv_post_thumbnail() {
+  if ( post_password_required() && ! is_singular() ) : /* 비밀 글 */ ?>
+    <a class="post-thumbnail" href="<?php the_permalink(); ?>"><?php akaiv_the_post_thumbnail_placeholder( 'thumbnail', 'thumbnail-lock' ); ?></a><?php
+    return;
+  endif;
+
+  if ( is_singular() ) : /* 글, 페이지, 첨부파일 */
+    if ( has_post_thumbnail() ) : ?>
+      <div class="post-thumbnail">
+        <?php the_post_thumbnail( 'full' ); ?>
+      </div><?php
+    endif;
+
+  else : /* 보관함 */ ?>
+    <a class="post-thumbnail" href="<?php akaiv_the_url(); ?>"><?php
       if ( has_post_thumbnail() ) :
-        akaiv_the_post_thumbnail_srcset( 'related-1x', 'related-2x' );
-      else : ?>
-        <span class="docs"><i class="fa fa-fw fa-file-text-o"></i></span><?php
+        the_post_thumbnail( 'thumbnail' );
+      else :
+        akaiv_the_post_thumbnail_placeholder( 'thumbnail' );
       endif; ?>
     </a><?php
-
-  else : ?>
-    <div class="post-thumbnail"><?php
-      if ( is_singular() ) : /* 글, 페이지, 첨부파일 */
-        if ( has_post_thumbnail() ) :
-          akaiv_the_post_thumbnail_srcset( 'single-1x', 'single-2x' );
-        endif;
-
-      else : /* 외부 */ ?>
-        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php
-          if ( has_post_thumbnail() ) :
-            akaiv_the_post_thumbnail_srcset( 'preview-1x', 'preview-2x' );
-          else : ?>
-            <div class="no-thumbnail bg-black text-light"><i class="fa fa-fw fa-file-text-o"></i> 문서</div><?php
-          endif; ?>
-        </a><?php
-
-      endif; ?>
-    </div><?php
 
   endif;
 }
