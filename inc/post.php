@@ -2,7 +2,7 @@
 /* 시작 */
 function akaiv_before_post($post = true) {
   if ( $post ) : ?>
-  <article <?php post_class(); ?>><?php
+    <article <?php post_class(); ?>><?php
   else : ?>
     <article class="hentry"><?php
   endif;
@@ -90,33 +90,42 @@ function akaiv_the_post_thumbnail_srcset($size1x, $size2x) {
 }
 
 /* 메타 */
-function akaiv_post_meta($meta = null) {
+function akaiv_post_meta($meta = null, $icon = '') {
   if ( ! $meta ) return;
+  if ( ! empty($icon) ) $icon = '<i class="fa fa-fw '.$icon.'"></i> ';
 
-  if ( $meta == 'category' ) : ?>
-    <span class="cat-links"><?php echo get_the_category_list( ', ' ); ?></span><?php
+  if ( $meta == 'category' ) :
+    $categories_list = get_the_category_list( ', ' );
+    if ( $categories_list ) : ?>
+      <span class="cat-links"><?php echo $icon.$categories_list; ?></span><?php
+    endif;
 
   elseif ( $meta == 'tag' ) :
-    if ( has_tag() ) : ?>
-      <span class="tag-links"><?php the_tags('', ', ', ''); ?></span><?php
+    $tags_list = get_the_tag_list( '', ', ', '' );
+    if ( $tags_list ) : ?>
+      <span class="tag-links"><?php echo $icon.$tags_list; ?></span><?php
     endif;
 
   elseif ( $meta == 'date' ) : ?>
-    <span class="posted-on"><time class="entry-date" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ) ?></time></span><?php
+    <span class="posted-on"><?php echo $icon; ?><a href="<?php echo get_month_link( get_the_time('Y'), get_the_time('m') ); ?>"><time class="entry-date" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time></a></span><?php
 
   elseif ( $meta == 'author' ) : ?>
-    <span class="author"><i class="fa fa-fw fa-user"></i> <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author"><?php echo get_the_author(); ?></a></span><?php
+    <span class="author"><?php echo $icon; ?><a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author"><?php echo esc_html( get_the_author() ); ?></a></span><?php
 
   endif;
 }
 
 /* 편집 링크 */
-function akaiv_edit_post_link() {
-  if ( ! is_page() ) :
-    edit_post_link( '편집', '<span class="edit-link">', '</span>' );
-  else :
-    edit_post_link( '편집', '<div class="text-right"><span class="edit-link">', '</span></div>' );
+function akaiv_edit_post_link($right = false, $icon = '') {
+  if ( ! empty($icon) )
+    $icon = '<i class="fa fa-fw '.$icon.'"></i> ';
+  $before = '<span class="edit-link">'.$icon;
+  $after = '</span>';
+  if ( $right ) :
+    $before = '<div class="text-right">'.$before;
+    $after = $after.'</div>';
   endif;
+  edit_post_link( '편집', $before, $after );
 }
 
 /* 내비게이션 버튼 */

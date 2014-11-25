@@ -1,7 +1,10 @@
 <?php
+/* 본문 폭 */
+$content_width = 1140;
+
 /* 테마 설정 */
 function akaiv_setup_theme() {
-  register_nav_menu( 'gnb', '주 메뉴' );
+  // register_nav_menu( 'gnb', '주 메뉴' );
   add_image_size( 'preview-1x', 240);
   add_image_size( 'preview-2x', 480);
   add_image_size( 'single-1x',  450);
@@ -9,7 +12,6 @@ function akaiv_setup_theme() {
   add_image_size( 'related-1x', 105, 105, array( 'left', 'top' ) );
   add_image_size( 'related-2x', 210, 210, array( 'left', 'top' ) );
   add_theme_support( 'post-thumbnails' );
-  add_theme_support( 'automatic-feed-links' );
   add_theme_support( 'html5', array( 'search-form', 'gallery', 'caption' ) );
   // add_theme_support( 'post-formats', array( '...' ) );
   add_editor_style( 'css/style.css' );
