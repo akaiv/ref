@@ -28,7 +28,7 @@
 .entry-summary {
 	.11px;
 	@media (min-width: @phone) { .13px }
-	font-weight: 300;
+	font-weight: @normal;
 	margin-top:    5px;
 	margin-bottom: 5px;
 }
@@ -54,11 +54,11 @@
 //== 글: 메타 - 제목과 내용
 .meta-title   {
 	color: @text;
-	font-weight: 400;
+	font-weight: (@normal + 100);
 	.fa { .text-muted }
 }
 .meta-content {
-	font-weight: 300;
+	font-weight: @normal;
 	margin-left: 0;
 }
 @media (min-width: @phone) {
