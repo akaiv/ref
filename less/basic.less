@@ -7,55 +7,6 @@ body {
 	margin-bottom: (@footer-height + @footer-margin);
 }
 
-// 헤더
-.gnb-mobile {
-	.no-border();
-	.box-shadow(~"0 2px 2px 0 hsla(0, 0%, 0%, 0.1),0 1px 0 0 hsla(0, 0%, 0%, 0.1)");
-}
-//== GNB의 콜랩스 영역
-.navbar-collapse.collapse {
-	@media (min-width: @tablet) {
-		display: none !important;
-	}
-}
-//== GNB 데스크톱의 카테고리 항목
-.cat-item {
-	.11px;
-	.text-light;
-	// 각 줄 앞 아이콘
-	.cat-list > & {
-		&:before {
-			.14px;
-			.fa; .fa-fw;
-			&:extend(.fa-square-o:before all);
-			margin-right: 3px;
-		}
-	}
-	// 모든 링크
-	a {
-		.14px;
-		.link(@text-light);
-		&:hover,
-		&:focus {
-			.underline;
-		}
-	}
-	// 현재 카테고리 링크
-	&.current-cat > a {
-		color: @text;
-		.strong;
-	}
-	// 2단계
-	.children {
-		display: inline-block;
-		.list-inline;
-		&:before {
-			content: "\2014";
-			margin-left: 10px;
-		}
-	}
-}
-
 // 검색
 .site-search .search-form {
 	margin-top: 0;
@@ -68,7 +19,7 @@ body {
 
 // 메인
 .site-main {
-	min-height: 360px;
+	min-height: 240px;
 }
 
 // 푸터

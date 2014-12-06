@@ -1,12 +1,11 @@
 <?php akaiv_before_post(); ?>
 
 <?php
-  $theID   = get_the_ID();
-  $starred = get_post_meta( $theID, 'wpcf-website-starred', true );
-  $url     = get_post_meta( $theID, 'wpcf-website-url', true );
-  $source  = get_post_meta( $theID, 'wpcf-website-source', true );
+$theID   = get_the_ID();
+$starred = get_post_meta( $theID, 'wpcf-website-starred', true );
+$url     = get_post_meta( $theID, 'wpcf-website-url', true );
+$source  = get_post_meta( $theID, 'wpcf-website-source', true );
 ?>
-
 
 <?php if ( is_single() ) : /* 글 */ ?>
 
@@ -31,7 +30,7 @@
         <div class="entry-meta">
           <p class="text-right">
             <?php akaiv_edit_post_link(); ?><br>
-            <?php akaiv_post_meta( 'date' ); ?>
+            <?php akaiv_entry_meta( 'date' ); ?>
           </p>
         </div>
       </li>
@@ -46,7 +45,7 @@
   </div><!-- .panel -->
   <div class="panel panel-default">
     <div class="panel-body">
-      <h1 class="related-title">분류: <?php akaiv_post_meta( 'category' ); ?> <small>이 분류에 있는 다른 글</small></h1>
+      <h1 class="related-title">분류: <?php akaiv_entry_meta( 'category' ); ?> <small>이 분류에 있는 다른 글</small></h1>
       <?php
         $args = array (
           'cat'            => get_the_category()[0]->term_id,
@@ -93,7 +92,7 @@
       <div class="entry-meta">
         <p class="text-right">
           <?php akaiv_edit_post_link(); ?><br>
-          <?php akaiv_post_meta( 'date' ); ?>
+          <?php akaiv_entry_meta( 'date' ); ?>
         </p>
       </div>
     </div><!-- .panel-body -->
@@ -101,12 +100,12 @@
     <ul class="list-group entry-meta">
       <li class="list-group-item">
         <div class="meta-title"><i class="fa fa-fw fa-folder-open"></i> 분류</div>
-        <div class="meta-content"><?php akaiv_post_meta( 'category' ); ?></div>
+        <div class="meta-content"><?php akaiv_entry_meta( 'category' ); ?></div>
       </li>
       <?php if ( has_tag() ) : ?>
         <li class="list-group-item">
           <div class="meta-title"><i class="fa fa-fw fa-tags"></i> 태그</div>
-          <div class="meta-content"><?php akaiv_post_meta( 'tag' ); ?></div>
+          <div class="meta-content"><?php akaiv_entry_meta( 'tag' ); ?></div>
         </li>
       <?php endif; ?>
       <?php if ( $source ) : ?>
