@@ -17,7 +17,6 @@ h1, h2, h3, p, ul, ol {
 .panel {
 	.no-border;
 	.box-shadow(@box-shadow);
-	margin-bottom: @item-gutter;
 }
 //== 패널: 썸네일
 .panel-heading {
@@ -33,22 +32,21 @@ h1, h2, h3, p, ul, ol {
 }
 //== 패널: 썸네일이 없는 경우
 .no-thumbnail {
-	.size(100%,25px);
+	.white;
+	.bg-gray;
+	.size(100%,@item-height-desktop);
+	.text-center;
 	padding: 4px 12px;
-}
-
-// 새 자료 등록 버튼
-.panel-post-new {
-	overflow: hidden;
-}
-.post-new {
-	.link(@text-lighter);
-	display: block;
-	height: @item-width-wide;
-	padding-top: 60px;
-	.transition(all 150ms ease);
-	&:hover { background-color: @gray-97 }
-	i { .font-size(96) }
+	position: relative;
+	> h1 {
+		line-height: 1.5;
+		.normal;
+		.opacity(.5);
+		position: absolute;
+		top: 50%;
+		left: 10px; right: 10px;
+		.translate(0; -50%);
+	}
 }
 
 // 폼: 새 항목 추가

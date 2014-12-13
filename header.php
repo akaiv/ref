@@ -28,6 +28,9 @@
         </button>
         <a id="brand" class="site-title navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
       </div>
+      <?php if ( current_user_can( 'publish_posts' ) ) : ?>
+        <p class="navbar-text"><a class="navbar-link" href="<?php echo admin_url( 'post-new.php' ) ?>" target="_blank"><i class="fa fa-fw fa-plus text-light"></i> 새 자료 등록</a></p>
+      <?php endif; ?>
       <div class="collapse navbar-collapse navbar-right" id="gnb-collapse">
         <ul class="nav navbar-nav"><?php wp_list_categories( $mobile ); ?></ul>
       </div>

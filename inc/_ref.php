@@ -22,7 +22,7 @@ function ref_post_thumbnail($size = null) {
           if ( has_post_thumbnail() ) :
             akaiv_the_post_thumbnail_srcset( 'preview-1x', 'preview-2x' );
           else : ?>
-            <div class="no-thumbnail bg-black text-light"><i class="fa fa-fw fa-file-text-o"></i> 문서</div><?php
+            <div class="no-thumbnail"><h1><?php akaiv_the_title(); ?></h1></div><?php
           endif; ?>
         </a><?php
 

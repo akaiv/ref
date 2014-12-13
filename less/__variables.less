@@ -20,11 +20,12 @@
 @width-android:      360px;
 @item-width-iphone:  ( ( @width-iphone  - 3 * @item-gutter ) / 2 );
 @item-width-android: ( ( @width-android - 3 * @item-gutter ) / 2 );
-@item-width-wide:    240px;
+@item-width-desktop: 240px;
+@item-height-desktop:(@item-width-desktop * 720 / 1280);
 @item-gutter:        10px;
-@columns-2:          ( 2 * ( @item-width-wide + @item-gutter ) - @item-gutter + @grid-gutter-width ); //  490 + 20 =  510
-@columns-3:          ( 3 * ( @item-width-wide + @item-gutter ) - @item-gutter + @grid-gutter-width ); //  740 + 20 =  760
-@columns-4:          ( 4 * ( @item-width-wide + @item-gutter ) - @item-gutter + @grid-gutter-width ); //  990 + 20 = 1010
-@columns-5:          ( 5 * ( @item-width-wide + @item-gutter ) - @item-gutter + @grid-gutter-width ); // 1240 + 20 = 1260
-@columns-6:          ( 6 * ( @item-width-wide + @item-gutter ) - @item-gutter + @grid-gutter-width ); // 1490 + 20 = 1510
-@columns-7:          ( 7 * ( @item-width-wide + @item-gutter ) - @item-gutter + @grid-gutter-width ); // 1740 + 20 = 1760
+@columns-2:          ( 2 * ( @item-width-desktop + @item-gutter ) - @item-gutter + @grid-gutter-width ); //  490 + 20 =  510
+@columns-3:          ( 3 * ( @item-width-desktop + @item-gutter ) - @item-gutter + @grid-gutter-width ); //  740 + 20 =  760
+@columns-4:          ( 4 * ( @item-width-desktop + @item-gutter ) - @item-gutter + @grid-gutter-width ); //  990 + 20 = 1010
+@columns-5:          ( 5 * ( @item-width-desktop + @item-gutter ) - @item-gutter + @grid-gutter-width ); // 1240 + 20 = 1260
+@columns-6:          ( 6 * ( @item-width-desktop + @item-gutter ) - @item-gutter + @grid-gutter-width ); // 1490 + 20 = 1510
+@columns-7:          ( 7 * ( @item-width-desktop + @item-gutter ) - @item-gutter + @grid-gutter-width ); // 1740 + 20 = 1760

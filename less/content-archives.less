@@ -3,37 +3,32 @@
 .archive,
 .search {
 
-	// 로딩 인디케이터
-	.loading-indicator {
-		.font-size(48);
-		.text-center;
-		color: darken(@body-bg, 5%);
-		height:      120px;
-		line-height: 120px;
-	}
-
-	// 보관함 목록, 페이지네이션, 푸터 숨김
-	.archive-list,
-	.nav-pagination,
-	.site-footer {
-		visibility: hidden;
-	}
-
 	// 글 목록
 	.archive-list {
+		.clearfix;
 		position: relative;
+		margin-left:  (-@item-gutter / 2);
+		margin-right: (-@item-gutter / 2);
 	}
 
 	// 글 항목
 	.archive-item {
-		position: absolute;
-		width: @item-width-iphone;
-		@media (min-width: @width-android) { width: @item-width-android }
-		@media (min-width: @phone)         { width: @item-width-wide }
+		width: (@item-width-iphone + @item-gutter);
+		float: left;
+		padding-left:  (@item-gutter / 2);
+		padding-right: (@item-gutter / 2);
+		@media (min-width: @width-android) { width: (@item-width-android + @item-gutter) }
+		@media (min-width: @phone)         { width: (@item-width-desktop + @item-gutter) }
+	}
+	//== 글: 썸네일
+	.post-thumbnail {
+		height: @item-height-desktop;
+		overflow: hidden;
 	}
 	//== 글: 제목
 	.entry-title {
 		.font-size(12);
+		.text-overflow();
 		@media (min-width: @phone) {
 			.font-size(14);
 		}
