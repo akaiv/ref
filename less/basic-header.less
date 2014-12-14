@@ -15,7 +15,8 @@
 	}
 }
 //== GNB 데스크톱의 카테고리 항목
-.cat-item {
+.cat-item,
+.section-list {
 	.11px;
 	.text-light;
 	// 각 줄 앞 아이콘
@@ -41,13 +42,14 @@
 		color: @text;
 		.strong;
 	}
-	// 2단계
-	.children {
-		display: inline-block;
-		.list-inline;
-		&:before {
-			content: "\2014";
-			margin-left: 10px;
-		}
+}
+// 2단계 및 범주 목록
+.cat-item .children,
+.section-list {
+	display: inline-block;
+	.list-inline;
+	&:before {
+		content: "\2014";
+		margin-left: 10px;
 	}
 }

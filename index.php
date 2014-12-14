@@ -9,7 +9,10 @@ akaiv_before_content(); ?>
 </div>
 
 <?php
-  if ( have_posts() ) : ?>
+  if ( have_posts() ) :
+    if ( is_archive() ) :
+      echo '<h1 class="archive-title">'.akaiv_get_the_archive_title().'</h1>';
+    endif; ?>
     <div class="archive-list">
     <?php
       while ( have_posts() ) : the_post();

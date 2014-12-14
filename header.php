@@ -37,12 +37,27 @@
     </div>
   </nav>
   <?php if ( ! is_singular() ) : ?>
-    <nav class="site-navigation gnb gnb-desktop" role="navigation">
+    <nav class="site-navigation gnb gnb-desktop hidden-xs" role="navigation">
       <div class="container">
         <div class="well">
           <?php if ( get_bloginfo( 'description' ) ) : ?><p class="site-description"><i class="fa fa-fw fa-bookmark-o"></i><?php bloginfo( 'description' ); ?></p><?php endif; ?>
-          <ul class="cat-list list-unstyled hidden-xs"><?php wp_list_categories( $desktop ); ?></ul>
+          <ul class="cat-list list-unstyled"><?php wp_list_categories( $desktop ); ?></ul>
         </div>
+        <?php $terms = get_terms( 'section' ); ?>
+        <?php if ( ! empty($terms) ) : ?>
+          <div class="well">
+            <i class="fa fa-fw fa-folder-o"></i>
+            범주
+            <ul class="section-list">
+              <?php
+              foreach ( $terms as $term ) :
+                $term_link = get_term_link( $term );
+                if ( is_wp_error( $term_link ) ) continue;
+                echo '<li class="section-item"><a href="' . esc_url( $term_link ) . '">' . $term->name . '</a></li>';
+              endforeach; ?>
+            </ul>
+          </div>
+        <?php endif; ?>
       </div>
     </nav>
   <?php endif; ?>
