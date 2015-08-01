@@ -3,9 +3,7 @@ get_header();
 akaiv_before_content(); ?>
 
 <div class="site-search">
-  <div class="container">
-    <?php get_search_form(); ?>
-  </div>
+  <?php get_search_form(); ?>
 </div>
 
 <?php
